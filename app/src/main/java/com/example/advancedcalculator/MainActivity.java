@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonAdd,buttonSub,buttonDivision,buttonMul,buttonDot,buttonC,buttonEqual,buttonMark,buttonPercent,buttonExNumb,buttonRoot,buttonMode,buttonFact,buttonPerm;
     TextView numb;
     float numb1, numb2;
-    boolean bdAddition,mSubtract,bdMultiplication,bdDivision,bdPercent,bdExNumb,bdRoot,bdMode,bdFact,bdPerm;
+    boolean bdAddition,mSubtract,bdMultiplication,bdDivision,bdPercent,bdExNumb,bdRoot,bdMode,bdFact,bdPerm,bdMark;
 
 
 
@@ -162,27 +162,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        buttonPerm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                numb1 = Float.parseFloat(numb.getText()+"");
-                mSubtract = true;
-                numb.setText(null);
-
-            }
-        });
-
         buttonFact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 numb1 = Float.parseFloat(numb.getText()+"");
                 bdFact = true;
-                numb.setText(null);
 
             }
         });
+
 
         buttonMul.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -226,9 +215,8 @@ public class MainActivity extends AppCompatActivity {
         buttonRoot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                numb1 = Float.parseFloat(numb.getText()+"");
+                numb2 = Float.parseFloat(numb.getText()+"");
                 bdRoot = true;
-                numb.setText(null);
             }
         });
 
@@ -299,15 +287,22 @@ public class MainActivity extends AppCompatActivity {
 
                     if(bdFact == true)
                     {
-                        int resFact = 1;
-
+                        int sayi = 1;
                         for(int i=1;i<=numb1;i++)
                         {
-                            resFact = resFact * i;
+                            sayi = sayi * i;
                         }
-                        numb.setText(resFact);
+                        numb.setText(sayi+"");
                         bdFact = false;
                     }
+
+                    if(bdRoot == true)
+                    {
+                        numb.setText(Math.sqrt(numb2)+"");
+                        bdRoot = false;
+
+                    }
+
 
 
                 }
